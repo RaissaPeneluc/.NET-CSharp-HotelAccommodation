@@ -40,22 +40,31 @@ int op = MenuReserva();
 switch (op)
 {
     case 1:
-        Console.WriteLine("\nQuarto Escolhido: Suíte Premium");
+        Console.WriteLine("\nQuarto Selecionado: Suíte Premium");
         Console.WriteLine("--------------------------------- \n");
 
         // Cria uma nova reserva, passando a suíte e os hóspedes
         int diasReservadosPremium = DiariaReserva();
         Reserva reserva1 = new Reserva(diasReservados: diasReservadosPremium);
         reserva1.CadastrarSuite(suitePremium);
-        reserva1.CadastrarHospedes(hospedes);
-
-        // Exibe a quantidade de hóspedes e o valor da diária
-        Console.WriteLine($"Hóspedes: {reserva1.ObterQuantidadeHospedes()}");
-        Console.WriteLine($"Valor diária: {reserva1.CalcularValorDiaria()}");
+    
+        // Capturando a exceção e exibindo somente a mensagem de erro
+        try
+        {
+            reserva1.CadastrarHospedes(hospedes);
+            // Exibe a quantidade de hóspedes e o valor da diária
+            Console.WriteLine($"Hóspedes: {reserva1.ObterQuantidadeHospedes()}");
+            Console.WriteLine($"Valor diária: {reserva1.CalcularValorDiaria()}");
+        }
+        catch (Exception ex)
+        {
+            // Exibe apenas a mensagem de exceção sem mostrar o rastreamento da pilha
+            Console.WriteLine(ex.Message);
+        }
         break;
 
     case 2:
-        Console.WriteLine("\nQuarto Escolhido: Suíte Standart");
+        Console.WriteLine("\nQuarto Selecionado: Suíte Standart");
         Console.WriteLine("---------------------------------- \n");
 
 
@@ -63,36 +72,51 @@ switch (op)
         int diasReservadosStandart = DiariaReserva();
         Reserva reserva2 = new Reserva(diasReservados: diasReservadosStandart);
         reserva2.CadastrarSuite(suiteStandart);
-        reserva2.CadastrarHospedes(hospedes);
 
-        // Exibe a quantidade de hóspedes e o valor da diária
-        Console.WriteLine($"Hóspedes: {reserva2.ObterQuantidadeHospedes()}");
-        Console.WriteLine($"Valor diária: {reserva2.CalcularValorDiaria()}");
+        // Capturando a exceção e exibindo somente a mensagem de erro
+        try
+        {
+            reserva2.CadastrarHospedes(hospedes);
+            // Exibe a quantidade de hóspedes e o valor da diária
+            Console.WriteLine($"Hóspedes: {reserva2.ObterQuantidadeHospedes()}");
+            Console.WriteLine($"Valor diária: {reserva2.CalcularValorDiaria()}");
+        }
+        catch (Exception ex)
+        {
+            // Exibe apenas a mensagem de exceção sem mostrar o rastreamento da pilha
+            Console.WriteLine(ex.Message);
+        }
         break;
 
     case 3:
-        Console.WriteLine("\nQuarto Escolhido: Suíte Basic");
+        Console.WriteLine("\nQuarto Selecionado: Suíte Basic");
         Console.WriteLine("------------------------------- \n");
-
 
         // Cria uma nova reserva, passando a suíte e os hóspedes
         int diasReservadosBasic = DiariaReserva();
         Reserva reserva3 = new Reserva(diasReservados: diasReservadosBasic);
         reserva3.CadastrarSuite(suiteBasic);
-        reserva3.CadastrarHospedes(hospedes);
-
-        // Exibe a quantidade de hóspedes e o valor da diária
-        Console.WriteLine($"Hóspedes: {reserva3.ObterQuantidadeHospedes()}");
-        Console.WriteLine($"Valor total da reserva: {reserva3.CalcularValorDiaria()}");
+        
+        // Capturando a exceção e exibindo somente a mensagem de erro
+        try
+        {
+            reserva3.CadastrarHospedes(hospedes);
+            // Exibe a quantidade de hóspedes e o valor da diária
+            Console.WriteLine($"Hóspedes: {reserva3.ObterQuantidadeHospedes()}");
+            Console.WriteLine($"Valor diária: {reserva3.CalcularValorDiaria()}");
+        }
+        catch (Exception ex)
+        {
+            // Exibe apenas a mensagem de exceção sem mostrar o rastreamento da pilha
+            Console.WriteLine(ex.Message);
+        }
         break;
 
     default:
-        Console.WriteLine("Selecione uma opção válida");
+        Console.WriteLine("Selecione uma opção válida\n");
         MenuReserva();
         break;
 }
-
-Console.WriteLine("\nReserva Concluída!");
 
 // Método de Menu Inicial dos Hóspedes
 static int MenuHospedes()

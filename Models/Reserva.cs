@@ -19,7 +19,7 @@ namespace DesafioProjetoHospedagem.Models
             // TODO: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
 
             bool capacidade = Suite.Capacidade >= hospedes.Count();
-
+    
             if (capacidade)
             {
                 Hospedes = hospedes;
@@ -27,7 +27,7 @@ namespace DesafioProjetoHospedagem.Models
             else
             {
                 // TODO: Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido
-                throw new Exception("Quarto não dá para a quantidade de hospedes \n");
+                throw new Exception("\nDesculpe não foi possível fazer sua reserva! \n ERRO: Quarto não comporta a quantidade de hóspedes");
             }
         }
 
